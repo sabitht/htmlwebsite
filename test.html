@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+    <title>Customer Location</title>
+</head>
+
+    <body>
+        <div style="text-align:center ;">
+		<button  id="myButtonId" type="button">Get Location</button>
+        </div>
+
+
+
+        <script type="text/javascript">
+
+
+        function get_location() {
+                console.log("Sending location data...");
+                var request = new XMLHttpRequest();
+
+                request.open('POST', 'http://209.59.138.250:8061/update_location', true);
+                request.setRequestHeader('Access-Control-Allow-Origin','http://d2derp.online');
+
+                request.setRequestHeader('Content-Type', 'application/json');
+                console.log("Content type set")
+                request.send(JSON.stringify({"email": "hey@mail.com", "password": "101010"}));
+                console.log("rq send")
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+<html>
+<head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    	<title>Customer Location</title>
+</head>
+    <body>
+	<div style="text-align:center ;">
+          <button id="myButtonId" onclick='getlocation();'>CLICK ME</button>
+	</div>
+    </body>
+
+    <script>
+        function getlocation() {
+            try {
+		  console.log("Sending location data...");
+                var req = new(this.XMLHttpRequest || ActiveXObject)('MSXML2.XMLHTTP.3.0');
+                req.open('POST', 'http://192.168.254.170:8085/update_location', 1);
+                req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		   console.log("final Sending location data...");
+                req.send()
+		  console.log("sended...");
+            } catch (e) {
+                window.console && console.log(e);
+            }       
+        }
+    </script>
+</html>
